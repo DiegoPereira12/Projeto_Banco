@@ -1,3 +1,4 @@
+from typing import NoReturn
 from cliente import Cliente
 
 class Conta(object):
@@ -10,7 +11,22 @@ class Conta(object):
         self.__saldo = 0.0
         self.__limite = 100.0
         Conta.codigo +=1
+
+    def numero(self):
+        return self.numero
+
+    def cliente(self):
+        return self.cliente
     
+    @property
+    def saldo(self):
+        return self.__saldo
+    
+    @property
+    def limite(self):
+        return self.__limite
+
+
 
 
     
