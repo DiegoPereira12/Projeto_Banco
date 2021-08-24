@@ -1,3 +1,5 @@
+from modulo.conta import Conta
+
 class Cliente(object):
     
     contador = 0
@@ -9,12 +11,11 @@ class Cliente(object):
         self.data_nascimento = data_nascimento
         Cliente.contador +=1
 
-
     def retorna_codigo(self):
         return self.codigo
-          
+
     def retorna_nome(self):
-        return self. nome
+        return self.nome
     
     @property
     def retorna_cpf(self):
@@ -22,4 +23,5 @@ class Cliente(object):
     
     def retorna_datanascimento(self):
         return self.data_nascimento
+    
     
