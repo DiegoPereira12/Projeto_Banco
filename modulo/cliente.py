@@ -24,4 +24,3 @@ class Cliente(object):
     def retorna_datanascimento(self):
         return self.data_nascimento
     
-    
