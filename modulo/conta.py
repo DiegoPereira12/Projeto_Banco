@@ -4,7 +4,7 @@ class Conta(Cliente):
 
     codigo = 1001
 
-    def __init__(self, nome, cpf, data_nascimento, saldo_total):
+    def __init__(self, nome, cpf, data_nascimento):
         self.numero = Conta.codigo
         super().__init__(nome, cpf, data_nascimento)
         self.__saldo = 0.0
@@ -53,7 +53,37 @@ class Conta(Cliente):
             print('Depósito efetuado com sucesso!!!')
         else:
             print('Erro ao efetuar depósito. Tente novamente')
-
-
     
+    def sacar(self, valor):
+        if 0 < valor <= self.__saldo_total:
+            if self.__saldo >= valor:
+                self.__saldo = self.__saldo - valor
+                self.__saldo_total = self._calcula_saldo_total
+            else:
+                restante = self.__saldo - valor
+                self.__limite = self.__limite + restante
+                self.__saldo = 0
+                self.__saldo_total = self._calcula_saldo_total
+            print('Saque efetuado com sucesso')
+        else:
+            print('Saque não realizado. Tente novamente') 
+
+    def transferir(self, valor, destino):
+        if valor > 0 and self.__saldo_total >= valor:
+            if self.__saldo >= valor:
+                self.__saldo = self.__saldo - valor
+                self.__saldo_total = self._calcula_saldo_total
+                destino.__saldo = destino.__saldo + valor
+                destino.__saldo_total = destino._calcula_saldo_total
+            else:
+                restante = self.__saldo  - valor
+                self.__saldo = 0
+                self.__limite = self.__limite + restante
+                self.__saldo_total = self._calcula_saldo_total
+                destino.__saldo = destino.__saldo + valor
+                destino.__saldo_total = destino._calcula_saldo_total
+            print('Transferência realizada com sucesso')
+        else:
+            print('Transferência não realizada. Tente novamente.')
+
 
