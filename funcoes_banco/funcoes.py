@@ -1,7 +1,7 @@
 from time import sleep
+from principal import menu
 from modulo.cliente import Cliente
 from modulo.conta import Conta
-import principal
 
 
 contas = []
@@ -24,7 +24,7 @@ def criar_conta():
     print(conta)
     print('------------------')
     sleep(2)
-    principal.menu()
+    menu()
 
 def efetuar_saque():
     if len(contas) > 0:
@@ -42,7 +42,7 @@ def efetuar_saque():
     else:
         print('Ainda não existem contas cadastradas')
     sleep(2)
-    principal.menu()
+    menu()
 
 def efetuar_deposito():
     if len(contas) > 0:
@@ -59,7 +59,7 @@ def efetuar_deposito():
     else:
         print('Ainda não existem contas cadastradas')
     sleep(2)
-    principal.menu()
+    menu()
 
 def efetuar_transferencia():
     if len(contas) > 0:
@@ -83,15 +83,20 @@ def efetuar_transferencia():
     else:
         ('Ainda não existem contas cadastradas')
     sleep(2)
-    principal.menu()
+    menu()
 
+def listar_contas():
+    if len(contas) > 0:
+        print('Contas cadastradas')
 
-
-
-
-
-
-
+        for conta in contas:
+            print(conta)
+            print('---------------------')
+            sleep(2)
+    else:
+        print('Não existem contas cadastradas')
+    sleep(2)
+    menu()
 
 def buscar_conta(numero: Conta):
     c: Conta = None
@@ -102,4 +107,4 @@ def buscar_conta(numero: Conta):
                 c = conta
     return c
 
-principal.menu    
+menu()    

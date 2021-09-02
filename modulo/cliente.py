@@ -1,5 +1,3 @@
-from modulo.conta import Conta
-
 class Cliente(object):
     
     contador = 0
