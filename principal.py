@@ -11,7 +11,7 @@ def menu():
     print('4 - Efetuar tranferência')
     print('5 - Listar contas')
     print('6 - Sair do sistema')
-
+    
     opcao = int(input('=> '))
 
     if opcao == 1:
@@ -33,5 +33,3 @@ def menu():
     
     sleep(2)
     menu()
-
-    
