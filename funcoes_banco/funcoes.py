@@ -107,4 +107,4 @@ def buscar_conta(numero: Conta):
                 c = conta
     return c
 
-menu()    
+menu()

@@ -1,5 +1,5 @@
 from time import sleep
-import funcoes_banco.funcoes
+from funcoes_banco import funcoes
 
 def menu():
     
@@ -15,15 +15,15 @@ def menu():
     opcao = int(input('=> '))
 
     if opcao == 1:
-        funcoes_banco.funcoes.criar_conta()
+        funcoes.criar_conta()
     elif opcao == 2:
-        funcoes_banco.funcoes.efetuar_saque()
+        funcoes.efetuar_saque()
     elif opcao == 3:
-        funcoes_banco.funcoes.efetuar_deposito()
+        funcoes.efetuar_deposito()
     elif opcao == 4:
-        funcoes_banco.funcoes.efetuar_transferencia()
+        funcoes.efetuar_transferencia()
     elif opcao == 5:
-        funcoes_banco.funcoes.listar_contas()
+        funcoes.listar_contas()
     elif opcao == 6:
         print('Sessão encerrada')
         sleep(2)
