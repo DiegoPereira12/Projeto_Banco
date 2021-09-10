@@ -11,6 +11,10 @@ class Conta(Cliente):
         self.__limite = 100.0
         self.__saldo_total = self._calcula_saldo_total
         Conta.codigo += 1
+    
+    def retorna(self):
+        return f'Numero da conta:{self.numero} \nCliente: {self.cliente.nome} ' \
+               f'\nSaldo Total: {(self.__saldo_total)}' 
         
     def retorna_numero(self):
         return self.numero
