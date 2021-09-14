@@ -1,4 +1,7 @@
-Projeto Banco
+
+# Projeto Banco
+
+## Status: Em construção ⚠️⚠️⚠️
 
 O usuário deverá cadastrar as contas dos clientes.
 
