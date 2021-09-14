@@ -41,7 +41,7 @@ def menu():
     sleep(2)
     menu()
 
-def criar_conta():
+def criar_conta() -> None:
     print('Informe os dados do cliente')
 
     nome = input('Digite o Nome do cliente => ')
@@ -144,3 +144,4 @@ def buscar_conta(numero: Conta):
 
 if __name__ == '__main__':
     main()
+    
