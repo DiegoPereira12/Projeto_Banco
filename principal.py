@@ -5,6 +5,9 @@ from modulo.conta import Conta
 
 contas = []
 
+def main():
+    menu()
+
 def menu():
     
     print('|========= DIBANCO =========|')
@@ -139,4 +142,5 @@ def buscar_conta(numero: Conta):
                 c = conta
     return c
 
-menu()
+if __name__ == '__main__':
+    main()

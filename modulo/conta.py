@@ -1,10 +1,10 @@
 from modulo.cliente import Cliente
 
-class Conta(Cliente):
+class Conta:
 
     codigo = 1001
 
-    def __init__(self, nome, cpf, data_nascimento):
+    def __init__(self, nome, cpf, data_nascimento) -> None:
         self.numero = Conta.codigo
         super().__init__(nome, cpf, data_nascimento)
         self.__saldo = 0.0

@@ -1,11 +1,11 @@
-class Cliente(object):
+class Cliente:
     
     contador = 0
 
-    def __init__(self, nome, cpf, data_nascimento):
+    def __init__(self, nome, cpf, data_nascimento) -> None:
         self.codigo = Cliente.contador
-        self.nome = nome
-        self.__cpf = cpf
+        self.nome = 'Diego'
+        self.__cpf = '072245255'
         self.data_nascimento = data_nascimento
         Cliente.contador +=1
 
