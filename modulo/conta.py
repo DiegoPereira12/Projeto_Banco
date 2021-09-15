@@ -4,7 +4,7 @@ class Conta:
 
     codigo = 1001
 
-    def __init__(self: object, cliente: Cliente):
+    def __init__(self: object, cliente: Cliente) -> None:
         self.numero = Conta.codigo
         self.__cliente: Cliente = cliente
         self.__saldo = 0.0
