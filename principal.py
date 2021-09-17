@@ -44,9 +44,9 @@ def menu():
 def criar_conta() -> None:
     print('Informe os dados do cliente')
 
-    nome = input('Digite o Nome do cliente => ')
-    cpf = input('Digite o CPF do cliente => ')
-    data_nascimento = input('Digite  a Data de Nascimento do cliente => ')
+    nome: str = input('Digite o Nome do cliente => ')
+    cpf: str = input('Digite o CPF do cliente => ')
+    data_nascimento: str = input('Digite  a Data de Nascimento do cliente => ')
 
     cliente: Cliente = Cliente(nome, cpf, data_nascimento)
 
