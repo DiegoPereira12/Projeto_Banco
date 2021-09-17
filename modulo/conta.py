@@ -12,13 +12,14 @@ class Conta:
         self.__saldo_total = self._calcula_saldo_total
         Conta.codigo += 1
     
-    def retorna(self: object):
+    def __str__(self: object):
         return f'Numero da conta:{self.numero} \nCliente: {self.cliente.nome} ' \
-               f'\nSaldo Total: {(self.__saldo_total)}' 
+               f'\nSaldo Total: {(self.saldo_total)}' 
         
     def retorna_numero(self: object):
         return self.numero
     
+    @property
     def retorna_cliente(self: object) -> Cliente:
         return self.__cliente
     
@@ -27,7 +28,7 @@ class Conta:
         return self.__saldo
     
     @retorna_saldo.setter
-    def retorna_saldo(self: object, valor):
+    def retorna_saldo(self: object, valor) -> None:
         self.__saldo = valor
     
     @property
@@ -35,22 +36,22 @@ class Conta:
         return self.__limite
     
     @retorna_limite.setter
-    def retorna_limite(self: object, valor):
+    def retorna_limite(self: object, valor) -> None:
         self.__limite = valor
     
     @property
-    def retorna_saldo_total(self: object):
+    def saldo_total(self: object):
         return self.__saldo_total
     
-    @retorna_saldo_total.setter
-    def retorna_saldo_total (self: object, valor):
-        self.__saldo_total= valor
+    @saldo_total.setter
+    def saldo_total (self: object, valor) -> None:
+        self.__saldo_total = valor
     
     @property
     def _calcula_saldo_total(self: object):
         return self.__saldo + self.__limite
 
-    def depositar(self: object, valor):
+    def depositar(self: object, valor) -> None:
         if valor > 0:
             self.__saldo = self.__saldo + valor
             self.__saldo_total = self._calcula_saldo_total
@@ -58,7 +59,7 @@ class Conta:
         else:
             print('Erro ao efetuar depósito. Tente novamente')
     
-    def sacar(self: object, valor):
+    def sacar(self: object, valor) -> None:
         if 0 < valor <= self.__saldo_total:
             if self.__saldo >= valor:
                 self.__saldo = self.__saldo - valor
@@ -72,7 +73,7 @@ class Conta:
         else:
             print('Saque não realizado. Tente novamente') 
 
-    def transferir(self: object, valor, destino):
+    def transferir(self: object, valor, destino) -> None:
         if valor > 0 and self.__saldo_total >= valor:
             if self.__saldo >= valor:
                 self.__saldo = self.__saldo - valor

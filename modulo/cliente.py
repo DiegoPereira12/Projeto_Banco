@@ -7,18 +7,18 @@ class Cliente:
         self.nome = nome
         self.__cpf = cpf
         self.data_nascimento = data_nascimento
-        Cliente.contador +=1
+        Cliente.contador += 1
 
-    def retorna_codigo(self):
+    def retorna_codigo(self: object):
         return self.codigo
 
-    def retorna_nome(self):
+    def retorna_nome(self: object):
         return self.nome
     
     @property
-    def retorna_cpf(self):
+    def retorna_cpf(self: object):
         return self.__cpf
     
-    def retorna_datanascimento(self):
+    def retorna_datanascimento(self: object):
         return self.data_nascimento
     
