@@ -2,52 +2,52 @@ from modulo.cliente import Cliente
 
 class Conta:
 
-    codigo = 1001
+    codigo: int = 1001
 
     def __init__(self: object, cliente: Cliente) -> None:
-       self.__numero:int = Conta.codigo
-       self.__cliente: Cliente = cliente
-       self.__saldo: float = 0.0
-       self.__limite: float = 100.0
-       self.__saldo_total: float = self.calcula_saldo_total
-       Conta.codigo += 1
+        self.__numero: int = Conta.codigo
+        self.__cliente: Cliente = cliente
+        self.__saldo: float = 0.0
+        self.__limite: float = 100.0
+        self.__saldo_total: float = self._calcula_saldo_total
+        Conta.codigo += 1
 
     def __str__(self: object) -> str:
-        return f'Numero da conta: {self.numero} \nCliente: {self.cliente.nome} ' \
-            f'\nSaldo Total: {(self.saldo_total)}'
-    
+        return f'Número da conta: {self.numero} \nCliente: {self.cliente.nome} ' \
+               f'\nSaldo Total: {(self.saldo_total)}'
+
     @property
-    def retorna_numero(self: object) -> int:
+    def numero(self: object) -> int:
         return self.__numero
-    
+
     @property
-    def retorna_cliente(self: object) -> Cliente:
+    def cliente(self: object) -> Cliente:
         return self.__cliente
-    
+
     @property
-    def retorna_saldo(self: object) -> float:
-        self.__saldo
-    
-    @retorna_saldo.setter
-    def retorna_saldo(self: object, valor: float) -> None:
+    def saldo(self: object) -> float:
+        return self.__saldo
+
+    @saldo.setter
+    def saldo(self: object, valor: float) -> None:
         self.__saldo = valor
-    
+
     @property
-    def retorna_limite(self: object) -> float:
+    def limite(self: object) -> float:
         return self.__limite
-    
-    @retorna_limite.setter
-    def retorna_limite(self: object, valor: float) -> None:
+
+    @limite.setter
+    def limite(self: object, valor: float) -> None:
         self.__limite = valor
 
     @property
-    def retorna_saldo_total(self:object) -> float:
+    def saldo_total(self: object) -> float:
         return self.__saldo_total
-    
-    @retorna_saldo_total.setter
-    def retorna_saldo_total(self:object, valor: float) -> None:
+
+    @saldo_total.setter
+    def saldo_total(self: object, valor: float) -> None:
         self.__saldo_total = valor
-    
+
     @property
     def _calcula_saldo_total(self: object) -> float:
         return self.saldo + self.limite
@@ -91,3 +91,4 @@ class Conta:
             print('Transferência realizada com sucesso.')
         else:
             print('Transferência não realizada. Tente novamente')
+

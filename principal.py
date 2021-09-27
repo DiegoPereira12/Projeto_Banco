@@ -8,23 +8,23 @@ contas = []
 def main():
     menu()
 
+
 def menu():
-    
-    print('|========= DIBANCO =========|')
-    print('Selecione uma opçao no menu: ')
+    print('============== DiBanco ==================')
+    print('Selecione uma opção no menu: ')
     print('1 - Criar conta')
     print('2 - Efetuar saque')
-    print('3 - Efetuar deposito')
-    print('4 - Efetuar tranferência')
+    print('3 - Efetuar depósito')
+    print('4 - Efetuar transferência')
     print('5 - Listar contas')
     print('6 - Sair do sistema')
     
-    opcao = int(input('=> '))
-
+    opcao: int = int(input('=> '))
+    
     if opcao == 1:
         criar_conta()
     elif opcao == 2:
-       efetuar_saque()
+        efetuar_saque()
     elif opcao == 3:
         efetuar_deposito()
     elif opcao == 4:
@@ -32,21 +32,21 @@ def menu():
     elif opcao == 5:
         listar_contas()
     elif opcao == 6:
-        print('Sessão encerrada')
+        print('======== Volte sempre ========')
         sleep(2)
-        exit()
+        exit(0)
     else:
         print('Opção inválida')
-    
+        
     sleep(2)
     menu()
 
 def criar_conta() -> None:
-    print('Informe os dados do cliente')
+    print('Informe os dados do cliente: ')
 
-    nome: str = input('Digite o Nome do cliente => ')
+    nome: str = input('Digite o nome do cliente => ')
     cpf: str = input('Digite o CPF do cliente => ')
-    data_nascimento: str = input('Digite  a Data de Nascimento do cliente => ')
+    data_nascimento: str = input('Digite a Data de nascimento do cliente => ')
 
     cliente: Cliente = Cliente(nome, cpf, data_nascimento)
 
@@ -54,86 +54,90 @@ def criar_conta() -> None:
 
     contas.append(conta)
 
-    print('Sua conta foi criada com sucesso')
-    print('------------------')
+    print('Conta criada com sucesso.')
+    print('Dados da conta: ')
+    print('-----------------')
     print(conta)
-    print('------------------')
     sleep(2)
     menu()
 
-def efetuar_saque():
-    if len(contas) > 0:
-        numero = int(input('Digite o número da sua conta => '))
 
-        conta: Conta = buscar_conta(numero)
+def efetuar_saque() -> None:
+    if len(contas) > 0:
+        numero: int = int(input('Informe o número da sua conta: '))
+
+        conta: Conta = buscar_conta_por_numero(numero)
 
         if conta:
-            valor = float(input('Digite o valor do saque => '))
+            valor: float = float(input('Informe o valor do saque: '))
 
             conta.sacar(valor)
         else:
-            print(f'Não foi encontrado uma conta com o número {numero}')
-    
+            print(f'Não foi encontrada a conta com número {numero}')
     else:
-        print('Ainda não existem contas cadastradas')
+        print('Ainda não existem contas cadastradas.')
     sleep(2)
     menu()
 
-def efetuar_deposito():
-    if len(contas) > 0:
-        numero = int(input('Digite o numero da sua conta => '))
 
-        conta: Conta = buscar_conta(numero)
+def efetuar_deposito() -> None:
+    if len(contas) > 0:
+        numero: int = int(input('Informe o número da sua conta: '))
+
+        conta: Conta = buscar_conta_por_numero(numero)
 
         if conta:
-            valor = float(input("Digite o valor do depósito => "))
+            valor: float = float(input('Informe o valor do depósito: '))
 
             conta.depositar(valor)
         else:
-            print(f'Não foi  encontrado uma conta com o número {numero}')
+            print(f'Não foi encontrada uma conta com número {numero}')
     else:
-        print('Ainda não existem contas cadastradas')
+        print('Ainda não existem contas cadastradas.')
     sleep(2)
     menu()
 
-def efetuar_transferencia():
+
+def efetuar_transferencia() -> None:
     if len(contas) > 0:
-        numero_origem = int(input('Digite o número de sua conta => '))
+        numero_o: int = int(input('Informe o número da sua conta: '))
 
-        conta_origem: Conta = buscar_conta(numero_origem)
+        conta_o: Conta = buscar_conta_por_numero(numero_o)
 
-        if conta_origem:
-            numero_destino = int(input('Digite o número da conta de Destino => '))
+        if conta_o:
+            numero_d: int = int(input('Informe o número da conta destino: '))
 
-            conta_destino: Conta = buscar_conta(numero_destino)
+            conta_d: Conta = buscar_conta_por_numero(numero_d)
 
-            if conta_destino:
-                valor = float(input('Digite o valor da transferência => '))
+            if conta_d:
+                valor: float = float(input('Informe o valor da transferência: '))
 
-                conta_origem.transferir(conta_destino, valor)
+                conta_o.transferir(conta_d, valor)
             else:
-                (f'A conta de destino {numero_destino} não foi encontrada')
+                print(f'A conta destino com número {numero_d} não foi encontrada.')
         else:
-            (f' A sua conta de origem {numero_origem} não foi encontrada')
+            print(f'A sua conta com número {numero_o} não foi encontrada.')
     else:
-        ('Ainda não existem contas cadastradas')
+        print('Ainda não existem contas cadastradas.')
     sleep(2)
     menu()
 
-def listar_contas():
+
+def listar_contas() -> None:
     if len(contas) > 0:
-        print('Contas cadastradas')
+        print('Listagem de contas')
 
         for conta in contas:
             print(conta)
-            print('---------------------')
-            sleep(2)
+            print('--------------------')
+            sleep(1)
     else:
-        print('Não existem contas cadastradas')
+        print('Não existem contas cadastradas.')
     sleep(2)
     menu()
 
-def buscar_conta(numero: Conta):
+
+def buscar_conta_por_numero(numero: int) -> Conta:
     c: Conta = None
 
     if len(contas) > 0:
@@ -144,4 +148,4 @@ def buscar_conta(numero: Conta):
 
 if __name__ == '__main__':
     main()
-    
+
